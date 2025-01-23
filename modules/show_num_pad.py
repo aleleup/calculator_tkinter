@@ -1,5 +1,6 @@
 import tkinter as tk
-from functions import row, set_numbers, column
+from functions import set_numbers
+from functions.utilities import column, row
 
 row, column, set_numbers = [row.row, column.column, set_numbers.set_numbers]
 

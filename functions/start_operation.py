@@ -2,6 +2,7 @@ def start_operation(operation_history_array:list) -> list[list, str] :
     '''
     Takes Number arrays and splits the orther of the operationx  
     '''
+    transform_numericstring_to_float(operation_history_array)
     
     operation_history_array.pop()
     loop_index:int = 0
@@ -24,3 +25,11 @@ def start_operation(operation_history_array:list) -> list[list, str] :
 
     return new_operation_array
 
+
+
+def transform_numericstring_to_float(operation_history_array):
+    i = 0
+    for item in operation_history_array:
+        if item.isnumeric():
+            operation_history_array[i] = float(item)
+        i += 1

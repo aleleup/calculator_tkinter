@@ -14,7 +14,7 @@ def render_calculator():
     
     display_text = tk.StringVar()
     display_text.set(operation_history_array)
-    numbers_renderer = tk.Label(root, font=("Arial", 20), textvariable=display_text, width=20, height=2, anchor="e")
+    numbers_renderer = tk.Label(root, font=("Arial", 20), textvariable=display_text, width=80, height=2, anchor="center")
     numbers_renderer.pack()
     button_frame = tk.Frame(root)
     for i in range(4):
