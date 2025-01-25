@@ -26,7 +26,6 @@ def multiply_nums(oredered_list:list[list, str]) -> list[float, str]:
         symbol_index_list:list = []
         loop_index:int = 0
         if type(item) == list: #if not then item == + or -
-            print('list')
             for element in item:
                 if element in ['*', '/']:
                     symbol_index_list.append(loop_index)
@@ -50,7 +49,6 @@ def multiply_nums(oredered_list:list[list, str]) -> list[float, str]:
         if len(symbol_index_list) == 0:
             
             item = item[0]
-            print("ITEMS", item)
         oredered_list[list_index] = item
     
     return oredered_list

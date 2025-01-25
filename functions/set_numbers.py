@@ -34,9 +34,14 @@ def set_numbers(num_or_sym, numbers_sym_array, operation_history_array:list, sym
 
     if num_or_sym == "=":
         last_display_array = operation_history_array.copy()
-        devide_plus_n_minus_op_arr:list[list, str] = start_operation(operation_history_array)
-        products = multiply_nums(devide_plus_n_minus_op_arr)
+
+        devided_operation_hierarquie_list:list[list, str] = start_operation(operation_history_array)
+        print("op 1",devided_operation_hierarquie_list)
+        products = multiply_nums(devided_operation_hierarquie_list)
+        print("op2", products)
         total_sum = sum_nums(products)
+        
+
         print("TOTAL_SUMS", total_sum)
         display_operation(last_display_array, display_text, total_sum)
  

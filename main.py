@@ -6,7 +6,7 @@ show_num_pad, show_sym = [show_num_pad.show_num_pad, show_sym.show_sym]
         
 
 def render_calculator():
-    sym = ["+", "-", "*", "/", "="]
+    sym = ["+", "-", "*", "/", "^", "="]
     numbers_sym_array = []
     operation_history_array = []
     root = tk.Tk()

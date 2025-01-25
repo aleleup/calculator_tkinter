@@ -2,7 +2,6 @@ def display_operation(display_array, display_text, total_sum):
     
     i = 0
     for item in display_array:
-        print(type(item))
         if type(item) != str:
             display_array[i] = str(item)
         i += 1
