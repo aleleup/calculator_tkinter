@@ -1,21 +1,22 @@
 from functions import start_operation, sum_nums
-from functions.utilities import display_operation
+from functions.utilities import display_operation, validate_first_negative
 import sys
 
 from functions import multiply_nums
 sys.dont_write_bytecode = True
 
-start_operation, multiply_nums, sum_nums, display_operation = [
+start_operation, multiply_nums, sum_nums, display_operation, validate_first_negative = [
     start_operation.start_operation, 
     multiply_nums.multiply_nums, 
     sum_nums.sum_nums, 
-    display_operation.display_operation]
+    display_operation.display_operation,
+    validate_first_negative.validate_first_negative]
 
 # print(start_operation)
 
 def set_numbers(num_or_sym, numbers_sym_array, operation_history_array:list, sym, display_text):
 
-    
+
 
     if num_or_sym in sym:
         new_number = ''.join(numbers_sym_array)
@@ -33,6 +34,8 @@ def set_numbers(num_or_sym, numbers_sym_array, operation_history_array:list, sym
         display_operation(display_list, display_text, '')
 
     if num_or_sym == "=":
+        validate_first_negative(operation_history_array)
+
         last_display_array = operation_history_array.copy()
 
         devided_operation_hierarquie_list:list[list, str] = start_operation(operation_history_array)
@@ -46,4 +49,6 @@ def set_numbers(num_or_sym, numbers_sym_array, operation_history_array:list, sym
         display_operation(last_display_array, display_text, total_sum)
  
         operation_history_array.clear()
+
+
 
