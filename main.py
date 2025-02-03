@@ -6,7 +6,8 @@ show_num_pad, show_sym = [show_num_pad.show_num_pad, show_sym.show_sym]
         
 
 def render_calculator():
-    sym = ["+", "-", "*", "/", "^", "="]
+    math_sym1 = ["+", "-", "*", "/", "="]
+    math_sym2 = ["(", ")", "^", "^1/", "!"]
     numbers_sym_array = []
     operation_history_array = []
     root = tk.Tk()
@@ -20,8 +21,8 @@ def render_calculator():
     for i in range(4):
         button_frame.columnconfigure(i, weight=1)
    
-    show_num_pad(button_frame, numbers_sym_array, operation_history_array, sym, display_text)
-    show_sym(button_frame, numbers_sym_array, operation_history_array, sym, display_text)
+    show_num_pad(button_frame, numbers_sym_array, operation_history_array, math_sym1, math_sym2,display_text)
+    show_sym(button_frame, numbers_sym_array, operation_history_array, math_sym1, math_sym2,display_text)
     button_frame.pack()
 
     root.mainloop()
