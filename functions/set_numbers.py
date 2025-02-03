@@ -46,15 +46,15 @@ def set_numbers(num_or_sym, numbers_sym_array, operation_history_array:list, sym
         devided_operation_hierarquie_list:list[list, str] = start_operation(operation_history_array, ["+", "-"])
         print("op 1",devided_operation_hierarquie_list)
 
-        # potencies_or_factorials = potencies_or_factorial(devided_operation_hierarquie_list)
-        products = multiply_nums(devided_operation_hierarquie_list)
-        print("op2", products)
-        total_sum = sum_nums(products)
+        potencies_or_factorials = potencies_or_factorial(devided_operation_hierarquie_list)
+        # products = multiply_nums(devided_operation_hierarquie_list)
+        # print("op2", products)
+        # total_sum = sum_nums(products)
         
 
-        print("TOTAL_SUMS", total_sum)
-        display_operation(last_display_array, display_text, total_sum)
-        operation_history_array.clear()
+        # print("TOTAL_SUMS", total_sum)
+        # display_operation(last_display_array, display_text, total_sum)
+        # operation_history_array.clear()
 
 
 
