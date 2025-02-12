@@ -1,3 +1,7 @@
+from functions.operations import add_substract_handler
+
+add_substract_handler = add_substract_handler.add_substract_handler
+
 def sum_nums(product_list: list[str, int, float]) -> float:
     product_copy:list = product_list.copy()
     symbol_index_list:list = []
@@ -25,12 +29,12 @@ def sum_nums(product_list: list[str, int, float]) -> float:
 
         symbol_index_list.pop(0) #Remove element 
 
-        item_sum_1 = handle_sum(item_sum_1)
+        item_sum_1 = add_substract_handler(item_sum_1)
 
         product_copy = [item_sum_1] + item_sum_2
 
     if len(symbol_index_list) == 1:
-        product_copy = handle_sum(product_copy)
+        product_copy = add_substract_handler(product_copy)
 
     if len(symbol_index_list) == 0:
         print("entrying the last if")
@@ -40,11 +44,5 @@ def sum_nums(product_list: list[str, int, float]) -> float:
     return product_copy
      
 
-def handle_sum(operation_list):
-    if operation_list[1] == "+":
-        return operation_list[0] + operation_list[2]
-    else:
-        return operation_list[0] - operation_list[2]
-    
 
 

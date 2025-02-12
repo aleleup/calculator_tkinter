@@ -1,3 +1,7 @@
+from functions.operations import mult_div_handler
+
+mult_div_handler = mult_div_handler.mult_div_handler
+
 def multiply_nums(oredered_list:list[list, str]) -> list[float, str]:
     '''
        Recives a list and inmediatly check the type of each item. 
@@ -36,7 +40,7 @@ def multiply_nums(oredered_list:list[list, str]) -> list[float, str]:
             item_prod_2:list = item[symbol_index_list[1]:  ]
             new_list:list = [item_prod_1, item_prod_2]
 
-            new_list[0] = hadnle_multiplication(item_prod_1)
+            new_list[0] = mult_div_handler(item_prod_1)
             
             symbol_index_list.pop(0) #Remove element 
 
@@ -45,20 +49,10 @@ def multiply_nums(oredered_list:list[list, str]) -> list[float, str]:
                 break
             
         if len(symbol_index_list) == 1:
-           item = hadnle_multiplication(item)
+           item = mult_div_handler(item)
         if len(symbol_index_list) == 0:
             
             item = item[0]
         oredered_list[list_index] = item
     
     return oredered_list
-
-
-
-def hadnle_multiplication(item_list ):
-    if item_list[1] == "*":
-        return  item_list[0] * item_list[2]
-    else:   
-        return  item_list[0] / item_list[2]
-    
-
