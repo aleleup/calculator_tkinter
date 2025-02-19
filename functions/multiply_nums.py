@@ -23,7 +23,6 @@ def multiply_nums(oredered_list:list[list, str]) -> list[float, str]:
                     [ab, *, c,[ *, d]] ... -> [abcd + fd]
     '''  
     list_index = -1 
-    print(oredered_list)
 
     for item in oredered_list:
         list_index+=1

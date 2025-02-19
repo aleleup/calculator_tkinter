@@ -8,11 +8,7 @@ divide_operation_hierarquie, check_for_potency_operation = [
 factorial_handler, power_handler = [factorial_handler.factorial_handler, power_handler.power_handler]
 
 def potencies_or_factorial(operation_list:list[list, str]) ->list[list, str]:
-    print(f"""
-    ---------------POTENCY_OR_FACTORIAL------------------
-                OP_LIST {operation_list}
-""")
-    
+ 
     for operation_list_item in operation_list :
         operationlist_index_level_1 = operation_list.index(operation_list_item)
         #Remove elements and keep target
@@ -49,7 +45,6 @@ def potencies_or_factorial(operation_list:list[list, str]) ->list[list, str]:
 
             #potencies logic:
             operation = potencies_logic(operation, potencies_indexes)
-            print(operation)
             
 
             operation_list_item[operation_index] = operation
@@ -67,10 +62,8 @@ def potencies_logic(operation, potencies_indexes):
         potency_part = operation[potencies_indexes[-1] -1: ]
         future_part = operation[ : potencies_indexes[-1] -1]
         new_list = [future_part, potency_part]
-        print("NEW_LIST", new_list)
         potency_part = power_handler(potency_part)
 
-        print("potency_part", potency_part)
         operation = future_part + [potency_part]
         potencies_indexes.pop()
 

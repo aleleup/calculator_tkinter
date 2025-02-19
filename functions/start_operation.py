@@ -10,8 +10,6 @@ def start_operation(operation_history_array:list, expected_syms:list[str,str]) -
     Takes Number arrays and splits the orther of the operationx  
     '''
     transform_numericstring_to_float(operation_history_array)
-    
-    operation_history_array.pop()
 
     new_operation_array: list = divide_operation_hierarquie(operation_history_array, expected_syms)
 

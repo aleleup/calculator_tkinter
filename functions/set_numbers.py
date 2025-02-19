@@ -1,4 +1,4 @@
-from functions import sum_nums, potencies_or_factorial, start_operation, parenthesis_handler
+from functions import sum_nums, potencies_or_factorial, start_operation, parenthesis_handler, multiply_nums
 from functions.utilities import display_operation, validate_first_negative, fix_parenthesis_bug
 import sys
 
@@ -16,11 +16,9 @@ start_operation, potencies_or_factorial ,multiply_nums, sum_nums, display_operat
     parenthesis_handler.parenthesis_handler
     ]
 
-# print(start_operation)
 
 def set_numbers(num_or_sym, numbers_sym_array, operation_history_array:list, sym1:list, sym2:list, display_text):
 
-    print("OPERATION HISTORY ARRAY", operation_history_array)
 
     symbols_list:list = sym1 + sym2
     if num_or_sym in symbols_list:
@@ -46,18 +44,18 @@ def set_numbers(num_or_sym, numbers_sym_array, operation_history_array:list, sym
 
         parenthesis_operation = parenthesis_handler(operation_history_array)
 
-        # devided_operation_hierarquie_list:list[list, str] = start_operation(operation_history_array, ["+", "-"])
-        # print("op 1",devided_operation_hierarquie_list)
+        devided_operation_hierarquie_list:list[list, str] = start_operation(parenthesis_operation, ["+", "-"])
+        print("op 1",devided_operation_hierarquie_list)
 
-        # potencies_or_factorials_list = potencies_or_factorial(devided_operation_hierarquie_list)
-        # print("op2", potencies_or_factorials_list)
-        # products_list = multiply_nums(potencies_or_factorials_list)
-        # print("op3", products_list)
-        # total_sum = sum_nums(products_list)
+        potencies_or_factorials_list = potencies_or_factorial(devided_operation_hierarquie_list)
+        print("op2", potencies_or_factorials_list)
+        products_list = multiply_nums(potencies_or_factorials_list)
+        print("op3", products_list)
+        total_sum = sum_nums(products_list)
         
 
-        # print("TOTAL_SUMS", total_sum)
-        # display_operation(last_display_array, display_text, total_sum)
+        print("TOTAL_SUMS", total_sum)
+        display_operation(last_display_array, display_text, total_sum)
         operation_history_array.clear()
 
 
