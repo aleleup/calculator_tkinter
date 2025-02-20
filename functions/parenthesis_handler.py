@@ -1,12 +1,8 @@
-from functions import sum_nums, potencies_or_factorial, start_operation, multiply_nums
 from functions.utilities import validate_first_negative
-
-start_operation, potencies_or_factorial,multiply_nums, sum_nums,  validate_first_negative, = [
-    start_operation.start_operation,
-    potencies_or_factorial.potencies_or_factorial, 
-    multiply_nums.multiply_nums, 
-    sum_nums.sum_nums, 
+from functions.operations import calculate
+validate_first_negative, calculate = [
     validate_first_negative.validate_first_negative,
+    calculate.calculate
     ]
 
 
@@ -65,13 +61,10 @@ def parenthesis_handler(operation_list:list):
 
         validate_first_negative(parenthesis_operation)
         print("parenthesis_operation", parenthesis_operation)
-        devided_operation_hierarquie_list:list[list, str] = start_operation(parenthesis_operation, ["+", "-"])
-        potencies_or_factorials_list = potencies_or_factorial(devided_operation_hierarquie_list)
-        products_list = multiply_nums(potencies_or_factorials_list)
-        total_sum = sum_nums(products_list)
-        print("PARENTHESIS SOLVED", total_sum)
+        result = calculate(parenthesis_operation)   
+        print("PARENTHESIS SOLVED", result)
 
-        operation_list[from_index: to_index] = [total_sum]
+        operation_list[from_index: to_index] = [result]
         left_parenthesis_indexes_store.pop()
         right_parenthesis_indexes_store.pop()
 
