@@ -17,11 +17,12 @@ start_operation, potencies_or_factorial ,multiply_nums, sum_nums, display_operat
     ]
 
 
-def set_numbers(num_or_sym, numbers_sym_array, operation_history_array:list, sym1:list, sym2:list, display_text):
+def set_numbers(num_or_sym:str, numbers_sym_array:list, operation_history_array:list, sym1:list, sym2:list, display_text):
 
 
     symbols_list:list = sym1 + sym2
     if num_or_sym in symbols_list:
+
         new_number = ''.join(numbers_sym_array)
         numbers_sym_array.clear()
         operation_history_array.append(new_number)
@@ -31,10 +32,37 @@ def set_numbers(num_or_sym, numbers_sym_array, operation_history_array:list, sym
         display_operation(operation_history_array, display_text, '')
 
     else:
-        numbers_sym_array.append(num_or_sym)
+        
+        if num_or_sym == 'del':
+            if numbers_sym_array: 
+                numbers_sym_array.pop()
+                
+            if not numbers_sym_array and operation_history_array:
+                if operation_history_array[-1].isnumeric():
+                    number_array = list(operation_history_array[-1])
+                    print(number_array)
+                    number_array.pop()
+                    operation_history_array.pop()
+                    numbers_sym_array += number_array
+
+                else: operation_history_array.pop()
+            
+            else: pass
+        
+        else:
+            numbers_sym_array.append(num_or_sym)
+
+        if num_or_sym == 'clr':
+            numbers_sym_array.clear()
+            operation_history_array.clear()
+           
+        
         display_list = operation_history_array.copy()
         display_list.extend(numbers_sym_array)
         display_operation(display_list, display_text, '')
+
+
+    
 
     if num_or_sym == "=":
 
