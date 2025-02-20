@@ -71,8 +71,9 @@ def set_numbers(num_or_sym:str, numbers_sym_array:list, operation_history_array:
 
         parenthesis_operation = parenthesis_handler(operation_history_array)
     
-        result = calculate(parenthesis_operation)
+        result = str(calculate(parenthesis_operation))
         print("RESULT", result)
+        
         display_operation(last_display_array, display_text, result)
         operation_history_array.clear()
 

@@ -1,11 +1,15 @@
-from functions.utilities import divide_operation_hierarquie, check_for_potency_operation
-from functions.operations import factorial_handler, power_handler
-divide_operation_hierarquie, check_for_potency_operation = [
+from functions.utilities import divide_operation_hierarquie, check_for_potency_operation, turn_list_to_int
+from functions.operations import factorial_handler, power_handler, gradual_problem_solving
+divide_operation_hierarquie, check_for_potency_operation, turn_list_to_int = [
     divide_operation_hierarquie.divide_operation_hierarquie, 
-    check_for_potency_operation.check_for_potency_operation
+    check_for_potency_operation.check_for_potency_operation,
+    turn_list_to_int.turn_list_to_int
     ]
 
-factorial_handler, power_handler = [factorial_handler.factorial_handler, power_handler.power_handler]
+factorial_handler, power_handler, gradual_problem_solving = [
+    factorial_handler.factorial_handler, power_handler.power_handler,
+    gradual_problem_solving.gradual_problem_solving
+    ]
 
 def potencies_or_factorial(operation_list:list[list, str]) ->list[list, str]:
  
@@ -44,7 +48,7 @@ def potencies_or_factorial(operation_list:list[list, str]) ->list[list, str]:
                 operation[factorial_index - 1] = factorial_handler(factorial_number)
 
             #potencies logic:
-            operation = potencies_logic(operation, potencies_indexes)
+            operation = gradual_problem_solving(operation, potencies_indexes, power_handler)
             
 
             operation_list_item[operation_index] = operation
@@ -55,31 +59,3 @@ def potencies_or_factorial(operation_list:list[list, str]) ->list[list, str]:
 
 
 
-def potencies_logic(operation, potencies_indexes):
-    while True:
-        if len(potencies_indexes) <=1 :
-            break
-        potency_part = operation[potencies_indexes[-1] -1: ]
-        future_part = operation[ : potencies_indexes[-1] -1]
-        new_list = [future_part, potency_part]
-        potency_part = power_handler(potency_part)
-
-        operation = future_part + [potency_part]
-        potencies_indexes.pop()
-
-    if len(potencies_indexes)  == 1 :
-        
-        operation = power_handler(operation)
-
-    return operation
-
-
-
-def turn_list_to_int(operation):
-    indx = 0
-    for element in  operation:
-        if type(element) == list:
-            operation[indx] = element[0]
-        indx +=1 
-
-    return operation
