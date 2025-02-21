@@ -1,17 +1,17 @@
 from functions import parenthesis_handler
 from functions.operations import calculate
-from functions.utilities import display_operation, validate_first_negative, fix_parenthesis_bug
+from functions.utilities import display_operation, validate_first_negative, fix_parenthesis_bug, replace_e_or_pi_for_aprox
 import sys
-
 from functions import multiply_nums
 sys.dont_write_bytecode = True
 
-display_operation, validate_first_negative, fix_parenthesis_bug, parenthesis_handler, calculate= [
+display_operation, validate_first_negative, fix_parenthesis_bug, parenthesis_handler, calculate, replace_e_or_pi_for_aprox= [
     display_operation.display_operation,
     validate_first_negative.validate_first_negative,
     fix_parenthesis_bug.fix_parenthesis_bug,
     parenthesis_handler.parenthesis_handler,
-    calculate.calculate
+    calculate.calculate,
+    replace_e_or_pi_for_aprox.replace_e_or_pi_for_aprox
     
     ]
 
@@ -64,10 +64,11 @@ def set_numbers(num_or_sym:str, numbers_sym_array:list, operation_history_array:
     
 
     if num_or_sym == "=":
-
-        fix_parenthesis_bug(operation_history_array)
-        validate_first_negative(operation_history_array)
+        
         last_display_array = operation_history_array.copy()
+        fix_parenthesis_bug(operation_history_array)
+        replace_e_or_pi_for_aprox(operation_history_array)
+        validate_first_negative(operation_history_array)
 
         parenthesis_operation = parenthesis_handler(operation_history_array)
     
