@@ -11,6 +11,7 @@ def sum_nums(product_list: list[str, int, float]) -> float:
     for item in product_list:
         if item in ['+', '-']:
             symbol_index_list.append(loop_index)
+        loop_index+=1
    
     item = gradual_problem_solving(product_list, symbol_index_list, add_substract_handler)
     if len(symbol_index_list) == 0:

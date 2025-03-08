@@ -5,7 +5,7 @@ show_num_pad, show_sym = [show_num_pad.show_num_pad, show_sym.show_sym]
         
 
 def render_calculator():
-    math_sym1 = ["+", "-", "*", "/", "="]
+    math_sym1 = ["+", "-", "*", "/", 'x', "=", ]
     math_sym2 = ["(", ")", "^", "^1/", "!"]
     result_list = []
     numbers_sym_array = []

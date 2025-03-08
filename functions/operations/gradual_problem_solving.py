@@ -4,7 +4,6 @@ def gradual_problem_solving(operation_list, operation_indexes, operation_handler
             break
         startup_part = operation_list[operation_indexes[-1] -1: ]
         future_part = operation_list[ : operation_indexes[-1] -1]
-        new_list = [future_part, startup_part]
         startup_part = operation_handler(startup_part)
 
         operation_list = future_part + [startup_part]

@@ -11,4 +11,3 @@ def replace_e_or_pi_for_aprox(operation_list:list) ->list:
 
         items_index+=1
 
-    print(operation_list)

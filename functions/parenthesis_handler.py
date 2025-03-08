@@ -44,7 +44,6 @@ def parenthesis_handler(operation_list:list):
     
     while "(" in operation_list or ")" in operation_list:
 
-        print("ENTRING THE LOOP", operation_list)
         if len(left_parenthesis_indexes_store) == 0: break
 
         #start from last indexes to first
@@ -60,9 +59,7 @@ def parenthesis_handler(operation_list:list):
             parenthesis_operation.pop()
 
         validate_first_negative(parenthesis_operation)
-        print("parenthesis_operation", parenthesis_operation)
         result = calculate(parenthesis_operation)   
-        print("PARENTHESIS SOLVED", result)
 
         operation_list[from_index: to_index] = [result]
         left_parenthesis_indexes_store.pop()
